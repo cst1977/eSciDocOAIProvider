@@ -15,6 +15,51 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>org.escidoc</id>
+            <url>https://www.escidoc.org/artifactory/repo</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>org.apache.maven.repo</id>
+            <url>http://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>org.apache.maven.repo</id>
+            <url>http://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>org.escidoc</id>
+            <url>https://www.escidoc.org/artifactory/repo</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+  
+    <distributionManagement>
+        <repository>
+            <id>org.escidoc</id>
+            <url>https://www.escidoc.org/artifactory/libs-releases-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>org.escidoc.core</id>
+            <url>https://www.escidoc.org/artifactory/libs-snapshots-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+  
     <dependencies>
         <dependency>
             <groupId>com.googlecode.redbox-mint</groupId>
@@ -91,23 +136,6 @@
     <build>
         <finalName>escidoc-oaiprovider</finalName>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jboss-maven-plugin</artifactId>
-                <configuration>
-                    <modules>
-                        <jarModule>
-                            <groupId>servlet-api</groupId>
-                            <artifactId>servlet-api</artifactId>
-                            <includeInApplication>true</includeInApplication>
-                        </jarModule>
-                    </modules>
-                    <jbossHome>${user.home}/bin/escidocCoreInstallations/escidocCore1.4/jboss</jbossHome>
-                    <port>8080</port>
-                    <deployUrlPath>${user.home}/bin/escidocCoreInstallations/escidocCore1.4/jboss/server/default/deploy/</deployUrlPath>
-                    <undeployUrlPath>${user.home}/bin/escidocCoreInstallations/escidocCore1.4/jboss/server/default/deploy/</undeployUrlPath>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
